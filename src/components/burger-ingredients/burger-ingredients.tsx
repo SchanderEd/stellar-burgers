@@ -9,7 +9,7 @@ import { BurgerIngredientsUI } from '../ui/burger-ingredients';
 
 export const BurgerIngredients: FC = () => {
   const { getIngredientsSelector } = ingredientsSelector;
-  const { ingredients } = useSelector(getIngredientsSelector);
+  const ingredients = useSelector(getIngredientsSelector);
 
   /** TODO: взять переменные из стора */
   const buns = ingredients.filter((item) => item.type === 'bun');
