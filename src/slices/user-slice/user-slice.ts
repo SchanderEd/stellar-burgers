@@ -4,9 +4,10 @@ import {
   getUserApi,
   loginUserApi,
   logoutApi,
-  registerUserApi
+  registerUserApi,
+  updateUserApi
 } from '@api';
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
 import { deleteCookie, setCookie } from '../../utils/cookie';
 
@@ -29,38 +30,55 @@ const initialState: TUserSlice = {
   isLoading: false
 };
 
-export const getUser = createAsyncThunk('user/get', async () => {
-  const responseUser = await getUserApi();
+export const getUser = createAsyncThunk(
+  'user/get',
+  async (_, { rejectWithValue }) => {
+    const responseUser = await getUserApi();
 
-  if (!responseUser.success) {
+    if (!responseUser.success) {
+      return rejectWithValue(responseUser);
+    }
+
     return responseUser;
   }
+);
 
-  return responseUser;
-});
+export const updateUser = createAsyncThunk(
+  'user/update',
+  async (data: Partial<TRegisterData>, { rejectWithValue }) => {
+    const response = await updateUserApi(data);
+
+    if (!response.success) {
+      return rejectWithValue('Ошибка изменения данных');
+    }
+
+    return response;
+  }
+);
 
 export const registerUser = createAsyncThunk(
   'user/register',
-  async (data: TRegisterData) => {
+  async (data: TRegisterData, { rejectWithValue }) => {
     const response = await registerUserApi(data);
 
-    if (!response.success) {
+    if (response.success) {
+      setCookie('accessToken', response.accessToken);
+      localStorage.setItem('refreshToken', response.refreshToken);
+
       return response;
     }
 
-    setCookie('accessToken', response.accessToken);
-    localStorage.setItem('refreshToken', response.refreshToken);
-    return response;
+    return rejectWithValue(response);
   }
 );
 
 export const loginUser = createAsyncThunk(
   'user/login',
-  async (data: TLoginData) => {
+  async (data: TLoginData, { rejectWithValue }) => {
     const response = await loginUserApi(data);
 
     if (!response.success) {
-      return response;
+      return rejectWithValue('Ошибка авторизации');
     }
 
     setCookie('accessToken', response.accessToken);
@@ -99,10 +117,9 @@ export const userSlice = createSlice({
         state.error = undefined;
         state.isLoading = false;
       })
-      .addCase(getUser.rejected, (state: TUserSlice, action) => {
+      .addCase(getUser.rejected, (state: TUserSlice) => {
         state.isAuthorization = false;
         state.isAuthentication = true;
-        state.error = action.error.message;
         state.isLoading = false;
       })
       .addCase(registerUser.pending, (state: TUserSlice) => {
@@ -114,6 +131,10 @@ export const userSlice = createSlice({
         state.isAuthorization = true;
         state.isAuthentication = true;
         state.user = action.payload.user;
+      })
+      .addCase(registerUser.rejected, (state: TUserSlice, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
       })
       .addCase(loginUser.pending, (state: TUserSlice) => {
         state.isLoading = true;
@@ -140,6 +161,18 @@ export const userSlice = createSlice({
         state.user = initialState.user;
       })
       .addCase(logoutUser.rejected, (state: TUserSlice, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(updateUser.pending, (state: TUserSlice) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(updateUser.fulfilled, (state: TUserSlice, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
+      })
+      .addCase(updateUser.rejected, (state: TUserSlice, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       });
