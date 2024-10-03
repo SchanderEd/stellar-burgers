@@ -43,14 +43,7 @@ const App = () => {
       <Routes location={backgroundLocation || location}>
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/feed' element={<Feed />} />
-        <Route
-          path='/ingredients/:id'
-          element={
-            <Modal title='Ингредиент' onClose={closeModal}>
-              <IngredientDetails />
-            </Modal>
-          }
-        />
+        <Route path='/ingredients/:id' element={<IngredientDetails />} />
         <Route element={<ProtectedRoute forAuthorizedUsers={false} />}>
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
@@ -69,7 +62,7 @@ const App = () => {
             <Route
               path='/feed/:number'
               element={
-                <Modal title='/feed/:number' onClose={closeModal}>
+                <Modal title='Заказ' onClose={closeModal}>
                   <OrderInfo />
                 </Modal>
               }
