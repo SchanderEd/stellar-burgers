@@ -1,12 +1,15 @@
 import { FC, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
-import { burgerConstructorSelector } from '../../slices/burger-constructor-slice/burger-constructor-slice';
+import { getConstructor } from '../../slices/burger-constructor-slice/burger-constructor-slice';
 import { useSelector } from '../../services/store';
+import { getIsAuthorization } from '../../slices/user-slice/user-slice';
+import { useNavigate } from 'react-router-dom';
 
 export const BurgerConstructor: FC = () => {
   /** TODO: взять переменные constructorItems, orderRequest и orderModalData из стора */
-  const { getConstructor } = burgerConstructorSelector;
+  const userAuthorization = useSelector(getIsAuthorization);
+  const navigate = useNavigate();
   const constructorItems = useSelector(getConstructor);
 
   const orderRequest = false;
@@ -15,6 +18,9 @@ export const BurgerConstructor: FC = () => {
 
   const onOrderClick = () => {
     if (!constructorItems.bun || orderRequest) return;
+    if (!userAuthorization) {
+      return navigate('/login');
+    }
   };
   const closeOrderModal = () => {};
 

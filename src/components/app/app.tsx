@@ -22,6 +22,7 @@ import { AppHeader } from '@components';
 import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
 import { getIngredients } from '../../slices/ingredients-slice/ingredients-slice';
+import { getUser } from '../../slices/user-slice/user-slice';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getIngredients());
+    dispatch(getUser());
   }, [dispatch]);
 
   const closeModal = () => {
