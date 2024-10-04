@@ -14,11 +14,17 @@ export const Login: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isLoading } = useSelector(getUserSelectors);
+  const { isLoading, error } = useSelector(getUserSelectors);
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    dispatch(loginUser({ email, password })).then(() => navigate('/'));
+    dispatch(loginUser({ email, password })).then((res) => {
+      if (res.meta.requestStatus === 'rejected') {
+        return;
+      } else {
+        navigate('/');
+      }
+    });
   };
 
   if (isLoading) {
@@ -27,7 +33,7 @@ export const Login: FC = () => {
 
   return (
     <LoginUI
-      errorText=''
+      errorText={error}
       email={email}
       setEmail={setEmail}
       password={password}

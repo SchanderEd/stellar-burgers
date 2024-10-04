@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 
 import {
   getOrderByNumber,
-  getOrderData
+  getSelectedOrder
 } from '../../slices/order-slice/order-slice';
 
 export const OrderInfo: FC = () => {
@@ -21,7 +21,7 @@ export const OrderInfo: FC = () => {
     dispatch(getOrderByNumber(orderNumber));
   }, [dispatch]);
 
-  const orderData: TOrder = useSelector(getOrderData);
+  const orderData = useSelector(getSelectedOrder);
 
   const ingredients: TIngredient[] = useSelector(getIngredientsSelector);
 

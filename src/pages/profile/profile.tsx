@@ -18,7 +18,8 @@ export const Profile: FC = () => {
     setFormValue((prevState) => ({
       ...prevState,
       name: user?.name || '',
-      email: user?.email || ''
+      email: user?.email || '',
+      password: ''
     }));
   }, [user]);
 
@@ -30,6 +31,11 @@ export const Profile: FC = () => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     dispatch(updateUser(formValue));
+    setFormValue({
+      name: user.name,
+      email: user.email,
+      password: ''
+    });
   };
 
   const handleCancel = (e: SyntheticEvent) => {

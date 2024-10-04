@@ -4,14 +4,14 @@ import { TOrder } from '@utils-types';
 import { useSelector, useDispatch } from '../../services/store';
 import { FC, useEffect } from 'react';
 import {
-  ordersFeedSelectors,
+  getOrdersSelectors,
   getOrdersFeed
-} from '../../slices/orders-feed-slice/orders-feed-slice';
+} from '../../slices/orders-slice/orders-slice';
 
 export const Feed: FC = () => {
   /** TODO: взять переменную из стора */
-  const { getOrdersFeedSelectors } = ordersFeedSelectors;
-  const orders: TOrder[] = useSelector(getOrdersFeedSelectors);
+  const { feed } = useSelector(getOrdersSelectors);
+  const orders: TOrder[] = feed;
   const dispatch = useDispatch();
 
   const handleGetFeeds = () => {
