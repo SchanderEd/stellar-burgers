@@ -21,8 +21,6 @@ export const Login: FC = () => {
     dispatch(loginUser({ email, password })).then((res) => {
       if (res.meta.requestStatus === 'rejected') {
         return;
-      } else {
-        navigate(-1);
       }
     });
   };
