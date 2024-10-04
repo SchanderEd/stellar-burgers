@@ -22,7 +22,7 @@ export const Login: FC = () => {
       if (res.meta.requestStatus === 'rejected') {
         return;
       } else {
-        navigate('/');
+        navigate(-1);
       }
     });
   };
