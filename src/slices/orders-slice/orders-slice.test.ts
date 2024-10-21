@@ -38,8 +38,8 @@ const mockOrders: TOrdersSlice = {
   totalToday: 86
 };
 
-describe('Тест order-slice', () => {
-  it('Отправка запроса. Статус isLoading меняется на true', () => {
+describe('Тест получения ленты заказов', () => {
+  it('Отправка запроса', () => {
     const expectedState = {
       ...testInititalState,
       isLoading: true
@@ -49,7 +49,7 @@ describe('Тест order-slice', () => {
     expect(result).toEqual(expectedState);
   });
 
-  it('Запрос успешно отправлен, получена лента заказов', () => {
+  it('Успешный запрос получения ленты заказов', () => {
     const expectedState = {
       ...testInititalState,
       isLoading: false,
@@ -65,7 +65,7 @@ describe('Тест order-slice', () => {
     expect(result).toEqual(expectedState);
   });
 
-  it('Запрос падает в ошибку, получено сообщение об ошибке', () => {
+  it('Ошибка получения ленты заказов', () => {
     const error = 'Ошибка при загрузке данных';
     const expectedState = {
       ...testInititalState,

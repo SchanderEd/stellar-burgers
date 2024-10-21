@@ -24,8 +24,8 @@ const mockIngredients: TIngredient = {
   image_large: 'https://code.s3.yandex.net/react/code/meat-04-large.png'
 };
 
-describe('Тест ingredient-slice', () => {
-  it('Отправка запроса. isLoading переходит в true', () => {
+describe('Тест ингредиентов', () => {
+  it('Отправка запроса на получение ингредиентов', () => {
     const expectedState = {
       ...testIngredientsState,
       isLoading: true,
@@ -38,7 +38,7 @@ describe('Тест ingredient-slice', () => {
     expect(result).toEqual(expectedState);
   });
 
-  it('Запрос успешный. Получен ингредиент.', () => {
+  it('Ингредиенты получены', () => {
     const expectedState = {
       ingredients: [mockIngredients],
       isLoading: false,
@@ -55,7 +55,7 @@ describe('Тест ingredient-slice', () => {
     expect(result).toEqual(expectedState);
   });
 
-  it('Запрос упал с ошибкой.', () => {
+  it('Ошибка получения ингредиентов', () => {
     const errorMessage = 'Ошибка при загрузке данных';
 
     const expectedState = {

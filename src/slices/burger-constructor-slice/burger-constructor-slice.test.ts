@@ -43,14 +43,14 @@ const mockMovedIngredient = {
   _id: '643d69a5c3f7b9001cfa0941'
 };
 
-describe('Тест burger-constructor-slice', () => {
+describe('Тест конструктора', () => {
   let state: TBurgerConstructor;
 
   beforeEach(() => {
     state = testInitialState;
   });
 
-  it('Тест добавления ингредиента в конструктор', () => {
+  it('Добавление ингридиента', () => {
     const testAddIngredient = addIngredient(mockIngredient);
     state = burgerConstructorSliceReducer(state, testAddIngredient);
 
@@ -60,7 +60,7 @@ describe('Тест burger-constructor-slice', () => {
     });
   });
 
-  it('Тест добавления булки в конструктор', () => {
+  it('Добавление булки', () => {
     const testAddIngredient = addIngredient(mockBun);
     state = burgerConstructorSliceReducer(state, testAddIngredient);
 

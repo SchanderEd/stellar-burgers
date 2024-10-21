@@ -29,7 +29,7 @@ const mockUser: TUserSlice = {
   isLoading: false
 };
 
-describe('Тест user-slice', () => {
+describe('Тест получения пользователя', () => {
   it('Отправка запроса на получение пользователя', () => {
     const expectedState = {
       ...testUserState,
@@ -77,7 +77,58 @@ describe('Тест user-slice', () => {
     const result = userSliceReducer(testUserState, testGetUser);
     expect(result).toEqual(expectedState);
   });
+});
 
+describe('Тест регистрации пользователя', () => {
+  it('Запрос на регистрацию пользователя', () => {
+    const expectedState = {
+      ...testUserState,
+      isLoading: true
+    };
+
+    const result = userSliceReducer(testUserState, {
+      type: registerUser.pending.type
+    });
+    expect(result).toEqual(expectedState);
+  });
+
+  it('Успешная регистрация пользователя', () => {
+    const expectedState = {
+      isAuthorization: true,
+      isAuthentication: true,
+      user: mockUser.user,
+      error: undefined,
+      isLoading: false
+    };
+    const testRegisterUser = {
+      type: registerUser.fulfilled.type,
+      payload: mockUser
+    };
+
+    const result = userSliceReducer(testUserState, testRegisterUser);
+    expect(result).toEqual(expectedState);
+  });
+
+  it('Ошибка регистрации', () => {
+    const errorMessage = 'Ошибка при загрузке данных';
+
+    const expectedState = {
+      ...testUserState,
+      error: errorMessage,
+      isLoading: false
+    };
+
+    const testRegistertUser = {
+      type: registerUser.rejected.type,
+      error: { message: errorMessage }
+    };
+
+    const result = userSliceReducer(testUserState, testRegistertUser);
+    expect(result).toEqual(expectedState);
+  });
+});
+
+describe('Тест авторизации пользователя', () => {
   it('Запрос на авторизацию пользователя', () => {
     const expectedState = {
       ...testUserState,
@@ -126,7 +177,9 @@ describe('Тест user-slice', () => {
     const result = userSliceReducer(testUserState, testLoginUser);
     expect(result).toEqual(expectedState);
   });
+});
 
+describe('Тест логаута пользователя', () => {
   it('Запрос на логаут пользователя', () => {
     const expectedState = {
       ...testUserState,
@@ -174,54 +227,9 @@ describe('Тест user-slice', () => {
     const result = userSliceReducer(testUserState, testLogoutUser);
     expect(result).toEqual(expectedState);
   });
+});
 
-  it('Запрос на регистрацию пользователя', () => {
-    const expectedState = {
-      ...testUserState,
-      isLoading: true
-    };
-
-    const result = userSliceReducer(testUserState, {
-      type: registerUser.pending.type
-    });
-    expect(result).toEqual(expectedState);
-  });
-
-  it('Успешная регистрация пользователя', () => {
-    const expectedState = {
-      isAuthorization: true,
-      isAuthentication: true,
-      user: mockUser.user,
-      error: undefined,
-      isLoading: false
-    };
-    const testRegisterUser = {
-      type: registerUser.fulfilled.type,
-      payload: mockUser
-    };
-
-    const result = userSliceReducer(testUserState, testRegisterUser);
-    expect(result).toEqual(expectedState);
-  });
-
-  it('Ошибка регистрации', () => {
-    const errorMessage = 'Ошибка при загрузке данных';
-
-    const expectedState = {
-      ...testUserState,
-      error: errorMessage,
-      isLoading: false
-    };
-
-    const testRegistertUser = {
-      type: registerUser.rejected.type,
-      error: { message: errorMessage }
-    };
-
-    const result = userSliceReducer(testUserState, testRegistertUser);
-    expect(result).toEqual(expectedState);
-  });
-
+describe('Тест обновления пользователя', () => {
   it('Запрос на обновление пользователя', () => {
     const expectedState = {
       ...testUserState,
