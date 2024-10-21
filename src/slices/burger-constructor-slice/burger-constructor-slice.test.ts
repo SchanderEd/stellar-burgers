@@ -1,4 +1,4 @@
-import { describe, test } from '@jest/globals';
+import { describe } from '@jest/globals';
 import {
   addIngredient,
   deleteIngredient,
@@ -55,7 +55,7 @@ describe('Тест burger-constructor-slice', () => {
     state = testInitialState;
   });
 
-  test('Тест добавления ингредиента в конструктор', () => {
+  it('Тест добавления ингредиента в конструктор', () => {
     const testAddIngredient = addIngredient(mockIngredient);
     state = burgerConstructorSliceReducer(state, testAddIngredient);
 
@@ -65,7 +65,7 @@ describe('Тест burger-constructor-slice', () => {
     });
   });
 
-  test('Тест добавления булки в конструктор', () => {
+  it('Тест добавления булки в конструктор', () => {
     const testAddIngredient = addIngredient(mockBun);
     state = burgerConstructorSliceReducer(state, testAddIngredient);
 
@@ -75,7 +75,7 @@ describe('Тест burger-constructor-slice', () => {
     });
   });
 
-  test('Удаление ингредиента', () => {
+  it('Удаление ингредиента', () => {
     const testAddIngredient = addIngredient(mockIngredient);
     state = burgerConstructorSliceReducer(state, testAddIngredient);
 
@@ -84,7 +84,7 @@ describe('Тест burger-constructor-slice', () => {
     expect(state.ingredients).toEqual([]);
   });
 
-  test('Перемещение ингредиента вниз', () => {
+  it('Перемещение ингредиента вниз', () => {
     state = burgerConstructorSliceReducer(state, addIngredient(mockIngredient));
     state = burgerConstructorSliceReducer(
       state,
@@ -97,7 +97,7 @@ describe('Тест burger-constructor-slice', () => {
     expect(state.ingredients[0]._id).toEqual(mockMovedIngredient._id);
   });
 
-  test('Перемещение ингредиента вверх', () => {
+  it('Перемещение ингредиента вверх', () => {
     state = burgerConstructorSliceReducer(state, addIngredient(mockIngredient));
     state = burgerConstructorSliceReducer(
       state,
@@ -110,7 +110,7 @@ describe('Тест burger-constructor-slice', () => {
     expect(state.ingredients[1]._id).toEqual(mockIngredient._id);
   });
 
-  test('Сброс конструктора', () => {
+  it('Сброс конструктора', () => {
     resetConstructor();
     expect(state).toEqual(mockConstructor);
   });

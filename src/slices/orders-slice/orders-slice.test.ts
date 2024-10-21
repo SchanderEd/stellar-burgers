@@ -1,4 +1,4 @@
-import { expect, test, describe } from '@jest/globals';
+import { expect, describe } from '@jest/globals';
 import {
   getOrdersFeed,
   initialState as testInititalState,
@@ -37,17 +37,17 @@ const mockOrders = {
 };
 
 describe('Тест order-slice', () => {
-  test('Отправка запроса. Статус isLoading меняется на true', () => {
+  it('Отправка запроса. Статус isLoading меняется на true', () => {
     const expectedState = {
       ...testInititalState,
       isLoading: true
     };
-    const testGetOrdersFeed = { type: getOrdersFeed.pending.type };
-    const result = ordersSliceReducer(testInititalState, testGetOrdersFeed);
+
+    const result = ordersSliceReducer(testInititalState, { type: getOrdersFeed.pending.type });
     expect(result).toEqual(expectedState);
   });
 
-  test('Запрос успешно отправлен, получена лента заказов', () => {
+  it('Запрос успешно отправлен, получена лента заказов', () => {
     const expectedState = {
       ...testInititalState,
       isLoading: false,
@@ -63,7 +63,7 @@ describe('Тест order-slice', () => {
     expect(result).toEqual(expectedState);
   });
 
-  test('Запрос падает в ошибку, получено сообщение об ошибке', () => {
+  it('Запрос падает в ошибку, получено сообщение об ошибке', () => {
     const error = 'Ошибка при загрузке данных';
     const expectedState = {
       ...testInititalState,
