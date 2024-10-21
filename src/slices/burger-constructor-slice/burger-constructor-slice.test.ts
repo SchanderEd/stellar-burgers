@@ -43,11 +43,6 @@ const mockMovedIngredient = {
   _id: '643d69a5c3f7b9001cfa0941'
 };
 
-const mockConstructor = {
-  bun: null,
-  ingredients: []
-};
-
 describe('Тест burger-constructor-slice', () => {
   let state: TBurgerConstructor;
 
@@ -111,7 +106,10 @@ describe('Тест burger-constructor-slice', () => {
   });
 
   it('Сброс конструктора', () => {
-    resetConstructor();
-    expect(state).toEqual(mockConstructor);
+    state = burgerConstructorSliceReducer(state, addIngredient(mockBun));
+    state = burgerConstructorSliceReducer(state, addIngredient(mockIngredient));
+    
+    state = burgerConstructorSliceReducer(state, resetConstructor());
+    expect(state).toEqual(testInitialState);
   });
 });

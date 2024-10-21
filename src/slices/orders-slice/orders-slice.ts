@@ -2,7 +2,7 @@ import { getFeedsApi, getOrdersApi } from '../../utils/burger-api';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
-type TOrdersSlice = {
+export type TOrdersSlice = {
   orders: TOrder[];
   feed: TOrder[];
   isLoading: boolean;

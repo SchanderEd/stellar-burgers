@@ -2,14 +2,15 @@ import { expect, describe } from '@jest/globals';
 import {
   getOrdersFeed,
   initialState as testInititalState,
-  ordersSliceReducer
+  ordersSliceReducer,
+  TOrdersSlice
 } from './orders-slice';
 
 jest.mock('../../utils/burger-api', () => ({
   getFeedsApi: jest.fn()
 }));
 
-const mockOrders = {
+const mockOrders: TOrdersSlice = {
   orders: [
     {
       _id: '671603a9d829be001c777675',
@@ -30,6 +31,7 @@ const mockOrders = {
       number: 57066
     }
   ],
+  feed: [],
   errors: undefined,
   isLoading: false,
   total: 56693,

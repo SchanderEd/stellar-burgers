@@ -42,7 +42,7 @@ const mockOrderByNumber = {
 };
 
 describe('Тест order-slice', () => {
-  it('Отправка запроса на создание заказа. isLoading меняется на true', () => {
+  it('Отправка запроса на создание заказа.', () => {
     const expectedState = {
       ...testOrderState,
       isLoading: true
@@ -54,7 +54,7 @@ describe('Тест order-slice', () => {
     expect(result).toEqual(expectedState);
   });
 
-  it('Запрос на создание заказа успешный.', () => {
+  it('Успешный запрос на создание заказа.', () => {
     const expectedState = {
       ...testOrderState,
       orderData: mockOrder.order,
@@ -101,7 +101,7 @@ describe('Тест order-slice', () => {
     expect(result).toEqual(expectedState);
   });
 
-  it('Отправка запроса на получение заказа успешный', () => {
+  it('Успешная отправка запроса на получение заказа', () => {
     const expectedState = {
       ...testOrderState,
       selectedOrder: mockOrderByNumber.orders[0],
@@ -116,7 +116,7 @@ describe('Тест order-slice', () => {
     expect(result).toEqual(expectedState);
   });
 
-  it('Отправка запроса на получение заказа падает с ошибкой', () => {
+  it('Ошибка при отправка запроса на получение заказа', () => {
     const errorMessage = 'Ошибка при загрузке данных';
 
     const expectedState = {

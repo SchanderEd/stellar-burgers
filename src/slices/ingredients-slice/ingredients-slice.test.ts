@@ -4,12 +4,13 @@ import {
   initialState as testIngredientsState,
   ingredientsSliceReducer
 } from './ingredients-slice';
+import { TIngredient } from '../../utils/types';
 
 jest.mock('../../utils/burger-api', () => ({
   getIngredientsApi: jest.fn()
 }));
 
-const mockIngredients = {
+const mockIngredients: TIngredient = {
   _id: '643d69a5c3f7b9001cfa0940',
   name: 'Говяжий метеорит (отбивная)',
   type: 'main',
