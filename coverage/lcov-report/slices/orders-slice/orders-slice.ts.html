@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.95% </span>
+                <span class="strong">92.06% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>51/63</span>
+                <span class='fraction'>58/63</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.95% </span>
+                <span class="strong">92.06% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>51/63</span>
+                <span class='fraction'>58/63</span>
             </div>
         
             
@@ -57,7 +57,7 @@
         <template id="filterTemplate">
             <div class="quiet">
                 Filter:
-                <input oninput="onInput()" type="search" id="fileSearch">
+                <input type="search" id="fileSearch">
             </div>
         </template>
     </div>
@@ -159,32 +159,32 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -224,17 +224,17 @@ export const ordersSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(getOrdersFeed.pending, (state: TOrdersSlice) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.isLoading = true;</span>
-<span class="cstat-no" title="statement not covered" >        state.errors = undefined;</span>
+        state.isLoading = true;
+        state.errors = undefined;
       })
       .addCase(getOrdersFeed.fulfilled, (state: TOrdersSlice, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.feed = action.payload.orders;</span>
-<span class="cstat-no" title="statement not covered" >        state.total = action.payload.total;</span>
-<span class="cstat-no" title="statement not covered" >        state.totalToday = action.payload.totalToday;</span>
-<span class="cstat-no" title="statement not covered" >        state.isLoading = false;</span>
+        state.feed = action.payload.orders;
+        state.total = action.payload.total;
+        state.totalToday = action.payload.totalToday;
+        state.isLoading = false;
       })
       .addCase(getOrdersFeed.rejected, (state: TOrdersSlice, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.errors = action.error.message;</span>
+        state.errors = action.error.message;
       })
       .addCase(getOrders.pending, (state: TOrdersSlice) =&gt; {
 <span class="cstat-no" title="statement not covered" >        state.isLoading = true;</span>
@@ -259,7 +259,7 @@ export const ordersSliceReducer = ordersSlice.reducer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-10-21T15:49:57.053Z
+                at 2024-10-21T16:42:46.411Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

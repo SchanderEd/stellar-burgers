@@ -7,9 +7,9 @@ import { initialState as ordersState } from '../slices/orders-slice/orders-slice
 import { initialState as orderState } from '../slices/order-slice/order-slice';
 
 describe('Тест rootReducer', () => {
-  it('Иницилизация rootReducer', () => {
-    const initialState = store.getState();
+  const initialState = store.getState();
 
+  it('Иницилизация rootReducer', () => {
     expect(initialState).toEqual({
       ingredients: ingredientsState,
       burgerConstructor: constructorState,
@@ -20,8 +20,7 @@ describe('Тест rootReducer', () => {
   });
 
   it('Получение неизвестного экшена', () => {
-    const state = store.getState();
     store.dispatch({ type: 'UNKNOWN_ACTION' });
-    expect(store.getState()).toEqual(state);
+    expect(store.getState()).toEqual(initialState);
   });
 });
