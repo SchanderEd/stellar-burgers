@@ -1,4 +1,4 @@
-import { getFeedsApi, getOrdersApi } from '@api';
+import { getFeedsApi, getOrdersApi } from '../../utils/burger-api';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
@@ -14,7 +14,7 @@ type TOrdersSlice = {
 export const getOrdersFeed = createAsyncThunk('feed/get', getFeedsApi);
 export const getOrders = createAsyncThunk('orders/get', getOrdersApi);
 
-const initialState: TOrdersSlice = {
+export const initialState: TOrdersSlice = {
   orders: [],
   feed: [],
   isLoading: false,
