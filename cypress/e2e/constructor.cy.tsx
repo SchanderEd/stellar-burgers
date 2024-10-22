@@ -99,11 +99,8 @@ describe('Тест оформления заказа', () => {
     cy.getSauce().contains(addButton).click();
 
     cy.get('[type = button]').contains('Оформить заказ').click();
-
-    cy.getModal().invoke('hide');
-
     cy.getModal().contains(testNubmer).should('exist');
-
+    cy.getModal().invoke('hide');
     cy.getOverlay().click();
     cy.getModal().should('not.exist');
 
