@@ -1,8 +1,8 @@
 import { expect, jest, describe } from '@jest/globals';
 import {
   getIngredients,
-  initialState as testIngredientsState,
-  ingredientsSliceReducer
+  ingredientsSliceReducer,
+  initialState as testIngredientsState
 } from './ingredients-slice';
 import { TIngredient } from '../../utils/types';
 
