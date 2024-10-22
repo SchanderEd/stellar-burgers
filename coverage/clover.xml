@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1729528966476" clover="3.2.0">
-  <project timestamp="1729528966476" name="All files">
+<coverage generated="1729617790054" clover="3.2.0">
+  <project timestamp="1729617790054" name="All files">
     <metrics statements="783" coveredstatements="529" conditionals="42" coveredconditionals="41" methods="40" coveredmethods="10" elements="865" coveredelements="580" complexity="0" loc="783" ncloc="783" packages="8" files="9" classes="9"/>
     <package name="reducers">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="root-reducer.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\reducers\root-reducer.ts">
+      <file name="root-reducer.ts" path="C:\stellar-burgers\src\reducers\root-reducer.ts">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -24,7 +24,7 @@
     </package>
     <package name="services">
       <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="store.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\services\store.ts">
+      <file name="store.ts" path="C:\stellar-burgers\src\services\store.ts">
         <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -53,7 +53,7 @@
     </package>
     <package name="slices.burger-constructor-slice">
       <metrics statements="87" coveredstatements="87" conditionals="11" coveredconditionals="11" methods="7" coveredmethods="6"/>
-      <file name="burger-constructor-slice.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\slices\burger-constructor-slice\burger-constructor-slice.ts">
+      <file name="burger-constructor-slice.ts" path="C:\stellar-burgers\src\slices\burger-constructor-slice\burger-constructor-slice.ts">
         <metrics statements="87" coveredstatements="87" conditionals="11" coveredconditionals="11" methods="7" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -146,7 +146,7 @@
     </package>
     <package name="slices.ingredients-slice">
       <metrics statements="47" coveredstatements="47" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="1"/>
-      <file name="ingredients-slice.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\slices\ingredients-slice\ingredients-slice.ts">
+      <file name="ingredients-slice.ts" path="C:\stellar-burgers\src\slices\ingredients-slice\ingredients-slice.ts">
         <metrics statements="47" coveredstatements="47" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -199,7 +199,7 @@
     </package>
     <package name="slices.order-slice">
       <metrics statements="82" coveredstatements="73" conditionals="7" coveredconditionals="7" methods="6" coveredmethods="1"/>
-      <file name="order-slice.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\slices\order-slice\order-slice.ts">
+      <file name="order-slice.ts" path="C:\stellar-burgers\src\slices\order-slice\order-slice.ts">
         <metrics statements="82" coveredstatements="73" conditionals="7" coveredconditionals="7" methods="6" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -287,7 +287,7 @@
     </package>
     <package name="slices.orders-slice">
       <metrics statements="63" coveredstatements="58" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="1"/>
-      <file name="orders-slice.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\slices\orders-slice\orders-slice.ts">
+      <file name="orders-slice.ts" path="C:\stellar-burgers\src\slices\orders-slice\orders-slice.ts">
         <metrics statements="63" coveredstatements="58" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -356,7 +356,7 @@
     </package>
     <package name="slices.user-slice">
       <metrics statements="185" coveredstatements="140" conditionals="16" coveredconditionals="15" methods="4" coveredmethods="1"/>
-      <file name="user-slice.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\slices\user-slice\user-slice.ts">
+      <file name="user-slice.ts" path="C:\stellar-burgers\src\slices\user-slice\user-slice.ts">
         <metrics statements="185" coveredstatements="140" conditionals="16" coveredconditionals="15" methods="4" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -547,7 +547,7 @@
     </package>
     <package name="utils">
       <metrics statements="282" coveredstatements="87" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="0"/>
-      <file name="burger-api.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\utils\burger-api.ts">
+      <file name="burger-api.ts" path="C:\stellar-burgers\src\utils\burger-api.ts">
         <metrics statements="235" coveredstatements="85" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -785,7 +785,7 @@
         <line num="234" count="0" type="stmt"/>
         <line num="235" count="0" type="stmt"/>
       </file>
-      <file name="cookie.ts" path="D:\OneDrive\Рабочий стол\stellar-burgers\src\utils\cookie.ts">
+      <file name="cookie.ts" path="C:\stellar-burgers\src\utils\cookie.ts">
         <metrics statements="47" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
