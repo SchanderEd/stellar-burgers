@@ -6,12 +6,12 @@ import {
   logoutApi,
   registerUserApi,
   updateUserApi
-} from '@api';
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+} from '../../utils/burger-api';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
 import { deleteCookie, setCookie } from '../../utils/cookie';
 
-type TUserSlice = {
+export type TUserSlice = {
   isAuthorization: boolean;
   isAuthentication: boolean;
   user: TUser;
@@ -19,7 +19,7 @@ type TUserSlice = {
   isLoading: boolean;
 };
 
-const initialState: TUserSlice = {
+export const initialState: TUserSlice = {
   isAuthorization: false,
   isAuthentication: false,
   user: {
@@ -117,10 +117,11 @@ export const userSlice = createSlice({
         state.error = undefined;
         state.isLoading = false;
       })
-      .addCase(getUser.rejected, (state: TUserSlice) => {
+      .addCase(getUser.rejected, (state: TUserSlice, action) => {
         state.isAuthorization = false;
         state.isAuthentication = true;
         state.isLoading = false;
+        state.error = action.error.message;
       })
       .addCase(registerUser.pending, (state: TUserSlice) => {
         state.isLoading = true;

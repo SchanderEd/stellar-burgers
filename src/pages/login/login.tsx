@@ -6,13 +6,11 @@ import {
   getUserSelectors
 } from '../../slices/user-slice/user-slice';
 import { Preloader } from '@ui';
-import { useNavigate } from 'react-router-dom';
 
 export const Login: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const { isLoading, error } = useSelector(getUserSelectors);
 
